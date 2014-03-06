@@ -7,6 +7,7 @@
     <artifactId>hypo-caching-rest</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hypo-caching-rest</name>
+     <packaging>war</packaging>
 
     <properties>
         <mongo.version>2.11.3</mongo.version>
@@ -149,27 +150,7 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>de.vergleich.versicherung.service.inno.Main</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+         
         </plugins>
     </build>
     
