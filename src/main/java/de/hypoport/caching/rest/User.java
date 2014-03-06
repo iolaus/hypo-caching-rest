@@ -5,19 +5,34 @@
  */
 package de.hypoport.caching.rest;
 
+import com.google.code.morphia.annotations.Entity;
+import com.google.code.morphia.annotations.Id;
+
 /**
  *
  * @author steffen.kaempke
  */
+@Entity("user")
 public class User {
 
+  @Id
   private String name;
+
+  private String alias;
 
   public User(String name) {
     this.name = name;
   }
 
   public User() {
+  }
+
+  public String getAlias() {
+    return alias;
+  }
+
+  public void setAlias(String alias) {
+    this.alias = alias;
   }
 
   public String getName() {
@@ -50,5 +65,4 @@ public class User {
     return true;
   }
 
-  
 }
