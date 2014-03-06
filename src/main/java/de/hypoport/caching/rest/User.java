@@ -16,37 +16,22 @@ import com.google.code.morphia.annotations.Id;
 public class User {
 
   @Id
-  private String name;
+  private String imei;
 
-  private String alias;
+  private long coins;
 
-  public User(String name) {
-    this.name = name;
+  public User(String imei) {
+    this.imei = imei;
   }
 
   public User() {
-  }
 
-  public String getAlias() {
-    return alias;
-  }
-
-  public void setAlias(String alias) {
-    this.alias = alias;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
   }
 
   @Override
   public int hashCode() {
-    int hash = 7;
-    hash = 53 * hash + (this.name != null ? this.name.hashCode() : 0);
+    int hash = 3;
+    hash = 89 * hash + (this.imei != null ? this.imei.hashCode() : 0);
     return hash;
   }
 
@@ -59,10 +44,26 @@ public class User {
       return false;
     }
     final User other = (User) obj;
-    if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name)) {
+    if ((this.imei == null) ? (other.imei != null) : !this.imei.equals(other.imei)) {
       return false;
     }
     return true;
+  }
+
+  public String getImei() {
+    return imei;
+  }
+
+  public void setImei(String imei) {
+    this.imei = imei;
+  }
+
+  public long getCoins() {
+    return coins;
+  }
+
+  public void setCoins(long coins) {
+    this.coins = coins;
   }
 
 }

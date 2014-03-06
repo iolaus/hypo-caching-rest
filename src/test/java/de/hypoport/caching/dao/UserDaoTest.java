@@ -45,9 +45,9 @@ public class UserDaoTest {
    */
   @Test
   public void testSave() {
-    final User peter = new User("peter");
+    final User peter = new User("fwefewf");
     dao.save(peter);
-    Assert.assertEquals("peter", peter.getName());
+    Assert.assertEquals("fwefewf", peter.getImei());
   }
   
 
@@ -57,8 +57,8 @@ public class UserDaoTest {
    */
   @Test
   public void testAll() {
-    final User peter = new User("peter");
-    final User uwe = new User("uwe");
+    final User peter = new User("fwefewf");
+    final User uwe = new User("grehtjh");
     dao.save(peter);
     dao.save(uwe);
     List<User> users = dao.all();
@@ -69,8 +69,8 @@ public class UserDaoTest {
   
    @Test
   public void testRead() {
-    dao.save(new User("peter"));
-    Assert.assertEquals("peter", dao.read("peter").getName());
+    dao.save(new User("ewhjtzjh"));
+    Assert.assertEquals("ewhjtzjh", dao.read("ewhjtzjh").getImei());
   }
   
 }

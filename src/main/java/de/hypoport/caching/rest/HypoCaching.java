@@ -10,13 +10,12 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
-import javax.ws.rs.core.Response;
 
 /**
  *
@@ -34,18 +33,18 @@ public class HypoCaching {
     return dao.all();
   }
 
-  @PUT
+  @POST
   @Consumes(MediaType.APPLICATION_JSON)
-  public Response save(User user) {
+  public User save(User user) {
     dao.save(user);
-    return Response.ok().build();
+    return user;
   }
 
   @GET
-  @Path("{name}")
+  @Path("{imei}")
   @Produces(MediaType.APPLICATION_JSON)
-  public User read(@PathParam("name") String name) {
-    return dao.read(name);
+  public User read(@PathParam("imei") String imei) {
+    return dao.read(imei);
 
   }
 

@@ -19,9 +19,9 @@ public interface IUserDao {
 
   void save(User user);
 
-  void delete(String name);
+  void delete(String imei);
 
-  User read(String name);
+  User read(String imei);
 
 
   void removeAllUser();

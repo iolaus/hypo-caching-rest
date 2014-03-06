@@ -48,12 +48,12 @@ public class HypoCachingTest {
 
     final Injector injector = Guice.createInjector(new HypoCachingAssembler());
     this.dao = injector.getInstance(IUserDao.class);
-    this.dao.save(new User("peter"));
+    this.dao.save(new User("hzrthrth"));
     ResourceConfig rc = new PackagesResourceConfig("de.hypoport.caching.rest");
     IoCComponentProviderFactory ioc = new GuiceComponentProviderFactory(rc, injector);
     server = GrizzlyServerFactory.createHttpServer(BASE_URI + "services/", rc, ioc);
   }
-  
+
   @After
   public void tearDown() {
     this.dao.removeAllUser();
@@ -72,22 +72,21 @@ public class HypoCachingTest {
     ClientResponse resp = service.path("services").path("users").accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
 
     final String s = resp.getEntity(String.class);
-    
-    Assert.assertTrue(s.contains("peter"));
+
+    Assert.assertTrue(s.contains("hzrthrth"));
   }
-  
+
   @Test
   public void testGet() {
 
     Client client = Client.create(new DefaultClientConfig());
     WebResource service = client.resource(getBaseURI());
 
-    ClientResponse resp = service.path("services").path("users").path("peter").accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
+    ClientResponse resp = service.path("services").path("users").path("hzrthrth").accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
 
     final String s = resp.getEntity(String.class);
-    
-    Assert.assertTrue(s.contains("peter"));
+
+    Assert.assertTrue(s.contains("hzrthrth"));
   }
-  
- 
+
 }

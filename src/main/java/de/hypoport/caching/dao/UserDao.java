@@ -20,14 +20,18 @@ public class UserDao implements IUserDao {
   @Inject
   private Datastore ds;
 
+  public UserDao() {
+
+  }
+
   @Override
   public List<User> all() {
     return ds.find(User.class).asList();
   }
 
   @Override
-  public User read(String name) {
-    return ds.find(User.class).field("name").equal(name).get();
+  public User read(String imei) {
+    return ds.find(User.class).field("imei").equal(imei).get();
   }
 
   @Override
@@ -36,9 +40,9 @@ public class UserDao implements IUserDao {
   }
 
   @Override
-  public void delete(String name) {
+  public void delete(String imei) {
     Query<User> q = ds.createQuery(User.class);
-    ds.delete(q.field("name").equal(name));
+    ds.delete(q.field("imei").equal(imei));
   }
 
   @Override
