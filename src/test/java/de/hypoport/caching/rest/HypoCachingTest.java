@@ -20,6 +20,8 @@ import de.hypoport.caching.dao.IUserDao;
 import de.hypoport.caching.guice.HypoCachingAssembler;
 import java.io.IOException;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 import junit.framework.Assert;
@@ -78,15 +80,22 @@ public class HypoCachingTest {
 
   @Test
   public void testGet() {
-    this.dao.save(new User("hzrthrth"));
+    final List<ElementEnum> elements = new ArrayList<ElementEnum>();
+    elements.add(ElementEnum.BAUM);
+    elements.add(ElementEnum.FUNDAMENT);
+    
+    final User peter = new User("hzrthrth");
+    peter.setCoins(245);
+    peter.setElemente(elements);
+    this.dao.save(peter);
     Client client = Client.create(new DefaultClientConfig());
     WebResource service = client.resource(getBaseURI());
 
     ClientResponse resp = service.path("services").path("users").path("hzrthrth").accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
 
     final String s = resp.getEntity(String.class);
-
-    Assert.assertTrue(s.contains("hzrthrth"));
+    System.out.println(s);
+    Assert.assertEquals("{\"imei\":\"hzrthrth\",\"coins\":245,\"elemente\":[\"BAUM\",\"FUNDAMENT\"]}", s);
   }
 
 }

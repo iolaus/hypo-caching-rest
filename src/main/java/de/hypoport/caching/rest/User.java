@@ -5,6 +5,8 @@
  */
 package de.hypoport.caching.rest;
 
+import java.util.List;
+
 /**
  *
  * @author steffen.kaempke
@@ -15,12 +17,38 @@ public class User {
 
   private long coins;
 
+  private List<ElementEnum> elemente;
+
   public User(String imei) {
     this.imei = imei;
   }
 
   public User() {
 
+  }
+
+  public String getImei() {
+    return imei;
+  }
+
+  public void setImei(String imei) {
+    this.imei = imei;
+  }
+
+  public long getCoins() {
+    return coins;
+  }
+
+  public void setCoins(long coins) {
+    this.coins = coins;
+  }
+
+  public List<ElementEnum> getElemente() {
+    return elemente;
+  }
+
+  public void setElemente(List<ElementEnum> elemente) {
+    this.elemente = elemente;
   }
 
   @Override
@@ -44,21 +72,4 @@ public class User {
     }
     return true;
   }
-
-  public String getImei() {
-    return imei;
-  }
-
-  public void setImei(String imei) {
-    this.imei = imei;
-  }
-
-  public long getCoins() {
-    return coins;
-  }
-
-  public void setCoins(long coins) {
-    this.coins = coins;
-  }
-
 }
