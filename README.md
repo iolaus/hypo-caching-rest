@@ -1,7 +1,7 @@
 hypo-caching-rest
 =================
 
-Rest backand for the hypoport caching app 
+Rest backand for the hypoport caching app ( hypoport fedex-day )
 
 put user
 curl -X POST -H "Content-Type: application/json" -d '{"imei":"5423254677657","coins":20}' http://localhost:8080/hypo-caching-rest/services/users
