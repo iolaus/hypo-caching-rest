@@ -5,7 +5,7 @@
 
     <groupId>de.vergleich</groupId>
     <artifactId>hypo-caching-rest</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.1</version>
     <name>hypo-caching-rest</name>
      <packaging>war</packaging>
 
