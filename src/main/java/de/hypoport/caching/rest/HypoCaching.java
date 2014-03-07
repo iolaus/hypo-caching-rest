@@ -39,6 +39,13 @@ public class HypoCaching {
     dao.save(user);
     return user;
   }
+  
+  @GET
+  @Path("delete")
+  public boolean delete() {
+    dao.removeAllUser();
+    return true;
+  }
 
   @GET
   @Path("{imei}")

@@ -98,4 +98,5 @@ public class HypoCachingTest {
     Assert.assertEquals("{\"imei\":\"hzrthrth\",\"coins\":245,\"elemente\":[\"BAUM\",\"FUNDAMENT\"]}", s);
   }
 
+ 
 }
