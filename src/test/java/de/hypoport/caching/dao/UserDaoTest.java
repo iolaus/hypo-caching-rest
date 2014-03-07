@@ -10,7 +10,7 @@ import com.google.inject.Guice;
 import de.hypoport.caching.guice.HypoCachingAssembler;
 import de.hypoport.caching.rest.User;
 import java.net.UnknownHostException;
-import java.util.List;
+import java.util.Collection;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
@@ -61,7 +61,7 @@ public class UserDaoTest {
     final User uwe = new User("grehtjh");
     dao.save(peter);
     dao.save(uwe);
-    List<User> users = dao.all();
+    Collection<User> users = dao.all();
     Assert.assertTrue(users.contains(peter));
     Assert.assertTrue(users.contains(uwe));
    

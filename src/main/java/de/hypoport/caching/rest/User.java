@@ -5,17 +5,12 @@
  */
 package de.hypoport.caching.rest;
 
-import com.google.code.morphia.annotations.Entity;
-import com.google.code.morphia.annotations.Id;
-
 /**
  *
  * @author steffen.kaempke
  */
-@Entity("user")
 public class User {
 
-  @Id
   private String imei;
 
   private long coins;

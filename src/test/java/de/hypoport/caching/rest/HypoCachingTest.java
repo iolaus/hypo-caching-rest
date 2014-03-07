@@ -48,7 +48,7 @@ public class HypoCachingTest {
 
     final Injector injector = Guice.createInjector(new HypoCachingAssembler());
     this.dao = injector.getInstance(IUserDao.class);
-    this.dao.save(new User("hzrthrth"));
+    
     ResourceConfig rc = new PackagesResourceConfig("de.hypoport.caching.rest");
     IoCComponentProviderFactory ioc = new GuiceComponentProviderFactory(rc, injector);
     server = GrizzlyServerFactory.createHttpServer(BASE_URI + "services/", rc, ioc);
@@ -65,7 +65,7 @@ public class HypoCachingTest {
    */
   @Test
   public void testGetAll() {
-
+    this.dao.save(new User("hzrthrth"));
     Client client = Client.create(new DefaultClientConfig());
     WebResource service = client.resource(getBaseURI());
 
@@ -78,7 +78,7 @@ public class HypoCachingTest {
 
   @Test
   public void testGet() {
-
+    this.dao.save(new User("hzrthrth"));
     Client client = Client.create(new DefaultClientConfig());
     WebResource service = client.resource(getBaseURI());
 

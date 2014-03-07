@@ -5,11 +5,10 @@
  */
 package de.hypoport.caching.dao;
 
-import com.google.code.morphia.Datastore;
-import com.google.code.morphia.query.Query;
 import de.hypoport.caching.rest.User;
-import java.util.List;
-import javax.inject.Inject;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -17,37 +16,34 @@ import javax.inject.Inject;
  */
 public class UserDao implements IUserDao {
 
-  @Inject
-  private Datastore ds;
+  final Map<String,User> users = new HashMap<String, User>();
 
   public UserDao() {
 
   }
 
   @Override
-  public List<User> all() {
-    return ds.find(User.class).asList();
+  public Collection<User> all() {
+    return users.values();
   }
 
   @Override
   public User read(String imei) {
-    return ds.find(User.class).field("imei").equal(imei).get();
+    return users.get(imei);
   }
 
   @Override
   public void save(User user) {
-    ds.save(user);
+    users.put(user.getImei(), user);
   }
 
   @Override
   public void delete(String imei) {
-    Query<User> q = ds.createQuery(User.class);
-    ds.delete(q.field("imei").equal(imei));
+    users.remove(imei);
   }
 
   @Override
   public void removeAllUser() {
-    Query<User> q = ds.createQuery(User.class);
-    ds.getDB().dropDatabase();
+    users.clear();
   }
 }

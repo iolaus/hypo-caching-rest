@@ -10,8 +10,6 @@
      <packaging>war</packaging>
 
     <properties>
-        <mongo.version>2.11.3</mongo.version>
-        <morphia.version>0.99</morphia.version>
         <jersey.version>1.18</jersey.version>
         <dep.jackson>1.9.13</dep.jackson>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,43 +58,14 @@
             <version>4.9</version>
             <scope>test</scope>
         </dependency>        
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.9.5</version>
-        </dependency>
-
       
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-            <version>${mongo.version}</version>
-        </dependency>
-
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-jaxrs</artifactId>
             <version>${dep.jackson}</version>
         </dependency>
             
-
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.code.morphia</groupId>
-            <artifactId>morphia</artifactId>
-            <version>${morphia.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.mongodb</groupId>
-                    <artifactId>mongo-java-driver</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+      
        
     </dependencies>
     <build>
@@ -154,13 +123,5 @@
         </plugins>
     </build>
     
-    <repositories>
-     
-        <repository>
-            <id>morphia.googlecode.com</id>
-            <name>Morphia Repo at Google Code</name>
-            <url>http://morphia.googlecode.com/svn/mavenrepo</url>
-        </repository>
-    </repositories>
-
+    
 </project>

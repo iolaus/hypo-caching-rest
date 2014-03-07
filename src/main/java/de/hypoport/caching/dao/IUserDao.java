@@ -7,7 +7,7 @@
 package de.hypoport.caching.dao;
 
 import de.hypoport.caching.rest.User;
-import java.util.List;
+import java.util.Collection;
 
 /**
  *
@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface IUserDao {
 
-  List<User> all();
+  Collection<User> all();
 
   void save(User user);
 

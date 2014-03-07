@@ -6,7 +6,7 @@
 package de.hypoport.caching.rest;
 
 import de.hypoport.caching.dao.IUserDao;
-import java.util.List;
+import java.util.Collection;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -29,7 +29,7 @@ public class HypoCaching {
 
   @GET
   @Produces(APPLICATION_JSON)
-  public List<User> getAll() {
+  public Collection<User> getAll() {
     return dao.all();
   }
 
